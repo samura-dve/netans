@@ -1,0 +1,5 @@
+vlans
+ -vlan10: office
+ -vlan20: telephone
+ -vlan30: reserv
+ -vlan100-110: p2p_v100 - p2p_v110
