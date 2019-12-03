@@ -10,8 +10,8 @@
     tasks:
       - name: task1
         ios_command:
-          command: 
+          commands: 
             - sh ip int br
         register: result
       - debug:
-          var: resultan 
+          var: result 

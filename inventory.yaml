@@ -5,10 +5,10 @@ all:
         cisco_switches:
           hosts:
             sw1:
-              ansible_host: 192.168.3.197
+              ansible_host: 192.168.3.63
         cisco_routers:
           hosts:
             r1: 
-              ansible_host: 192.168.3.200
+              ansible_host: 192.168.3.61
             r2: 
-              ansible_host: 192.168.3.201
+              ansible_host: 192.168.3.62
