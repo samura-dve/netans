@@ -1,0 +1,17 @@
+---
+  - name: play1
+    hosts: cisco_routers
+    gather_facts: False
+    vars:
+      ansible_user: admin
+      ansible_password: 123QWEasd
+      ansible_network_os: ios
+      ansible_connection: network_cli
+    tasks:
+      - name: task1
+        ios_command:
+          command: 
+            - sh ip int br
+        register: result
+      - debug:
+          var: resultan 
