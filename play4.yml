@@ -1,6 +1,6 @@
 ---
   - name: play1
-    hosts: cisco_routers
+    hosts: r1
     gather_facts: False
     vars:
       ansible_user: admin
@@ -9,11 +9,12 @@
       ansible_connection: network_cli
     tasks:
       - name: task1
-        ios_command:
-          commands: 
-            - sh ip int br
+        ios_config:
+          lines: 
+            - interface Loopback{{item.key}}
+        loop: "{{loopbacks | dict2items}}"
+#       when: item.key !=2
+        when: item.key in [1, 5, 6]
         register: result
       - debug:
           var: result 
-      - debug:
-          var: node

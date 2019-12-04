@@ -1,6 +1,6 @@
 ---
   - name: play1
-    hosts: cisco_routers
+    hosts: all
     gather_facts: False
     vars:
       ansible_user: admin
@@ -9,11 +9,9 @@
       ansible_connection: network_cli
     tasks:
       - name: task1
-        ios_command:
-          commands: 
-            - sh ip int br
+        ios_facts:
+          gather_subset: 
+            - interfaces
         register: result
       - debug:
           var: result 
-      - debug:
-          var: node
