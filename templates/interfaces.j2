@@ -1,0 +1,6 @@
+{% for x in loopbacks.keys() %}
+{%if x!=2%}
+inteface Loopback{{x}}
+  ip address {{loopbacks[x]}}
+{%endif%}
+{%endfor%}

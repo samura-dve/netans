@@ -1,0 +1,12 @@
+---
+- hosts: all
+  gather_facts: false
+  vars:
+      ansible_connection: local
+  tasks:
+    - template:
+        src: templates/ntp.j2
+        dest: output/{{inventory_hostname}}ntp_conf.txt
+        lstrip_blocks: true
+#      delegate_to: localhost
+#      run_once: true

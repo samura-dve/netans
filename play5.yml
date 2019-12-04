@@ -1,0 +1,12 @@
+---
+- hosts: cisco_routers
+  gather_facts: false
+  vars:
+      ansible_connection: local
+  tasks:
+    - template:
+        src: templates/interfaces.j2
+        dest: output/loopbacks.txt
+        lstrip_blocks: true
+      delegate_to: localhost
+#      run_once: true
