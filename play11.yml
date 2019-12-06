@@ -1,0 +1,34 @@
+---
+  - name: play1
+    hosts: cisco_routers
+    gather_facts: False
+    vars:
+      ansible_user: admin
+      ansible_password: 123QWEasd
+      ansible_network_os: ios
+      ansible_connection: network_cli
+    tasks:
+      - name: task1
+        ios_config:
+          lines:
+            - no ip access-group ACL1 in
+          parents:
+            - interface Loopback1
+      - ios_config:
+          before:
+            - no ip access-list extended ACL1
+      - ios_config:
+          lines:
+            - permit tcp 10.10.11.0 0.0.0.255 any eq 80
+            - permit tcp 10.10.11.0 0.0.0.255 any eq 22
+            - permit icmp any any
+          parents:
+            - ip access-list extended ACL2
+      - ios_config:
+          lines:
+            - ip access-group ACL2 in
+          parents:
+            - interface Loopback1
+
+
+

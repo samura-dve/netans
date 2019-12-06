@@ -9,3 +9,5 @@
   tasks:
     - ios_config:
         src: templates/interfaces0.j2
+    - ios_config:
+        src: templates/ntp.j2        

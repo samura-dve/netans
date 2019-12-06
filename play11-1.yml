@@ -1,0 +1,23 @@
+---
+  - name: play1
+    hosts: cisco_routers
+    gather_facts: False
+    vars:
+      ansible_user: admin
+      ansible_password: 123QWEasd
+      ansible_network_os: ios
+      ansible_connection: network_cli
+    tasks:
+      - ios_config:
+          lines:
+            - permit tcp 10.10.11.0 0.0.0.255 any eq www
+            - permit ip host 1.1.1.1 host 2.2.2.2
+            - permit tcp 10.10.11.0 0.0.0.255 any eq 22
+            - permit icmp any any
+          parents:
+            - ip access-list extended ACL2
+          match: exact
+
+
+
+

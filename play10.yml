@@ -11,15 +11,12 @@
       - name: task1
         ios_config:
           before:
-            - no interface Loopback1 
             - no interface Loopback2
             - no interface Loopback3
             - no interface Loopback4
             - no interface Loopback5
             - no interface Loopback6
-            - no interface Loopback7
-          lines: 
-            - interface Loopback1
-            - interface Loopback7
+          lines:
+            interface Loopback1
 
 
