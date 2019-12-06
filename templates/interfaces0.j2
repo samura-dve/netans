@@ -1,0 +1,4 @@
+{% for x in loopbacks.keys() %}
+interface Loopback{{x}}
+  ip address {{loopbacks[x]}}
+{%endfor%}

@@ -1,0 +1,11 @@
+---
+- hosts: cisco_routers
+  gather_facts: false
+  vars:
+      ansible_user: admin
+      ansible_password: 123QWEasd
+      ansible_network_os: ios
+      ansible_connection: network_cli
+  tasks:
+    - ios_config:
+        src: templates/interfaces0.j2

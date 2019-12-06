@@ -5,8 +5,8 @@
       ansible_connection: local
   tasks:
     - template:
-        src: templates/interfaces1.j2
-        dest: output/loopbacks.txt
+        src: templates/interfaces0.j2
+        dest: output/r{{node}}loopbacks.txt
         lstrip_blocks: true
       delegate_to: localhost
 #      run_once: true

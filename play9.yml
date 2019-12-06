@@ -1,0 +1,19 @@
+---
+  - name: play1
+    hosts: cisco_routers
+    gather_facts: False
+    vars:
+      ansible_user: admin
+      ansible_password: 123QWEasd
+      ansible_network_os: ios
+      ansible_connection: network_cli
+    tasks:
+      - name: task1
+        ios_command:
+          commands: 
+            - sh ip int br
+        register: result
+      - debug:
+          var: result.stdout_lines[0]|reject('search', 'unassigned') | list
+      - debug:
+          var: result.stdout_lines[0]|select('search', 'Vlan') | list
